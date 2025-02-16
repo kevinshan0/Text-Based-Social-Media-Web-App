@@ -25,9 +25,10 @@ export const actions: Actions = {
 
 		if (error) {
 			console.error(error);
+
 			redirect(303, '/auth/error');
 		} else {
-            redirect(303, '/auth/confirm');
+            redirect(303, '/');
         }
 	}
 };

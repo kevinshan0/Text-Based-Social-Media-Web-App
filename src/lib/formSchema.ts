@@ -15,6 +15,8 @@ export const signinSchema = z.object({
 });
 
 export const onboardSchema = z.object({
+    first_name: z.string().min(1).max(50),
+    last_name: z.string().min(1).max(50),
     username: z.string().min(2).max(50),
     birthdate: z.string().date().refine((v) => v, { message: "A date of birth is required." }),
 });

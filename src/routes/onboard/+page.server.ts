@@ -18,16 +18,13 @@ export const actions: Actions = {
             return fail(400, { form });
         }
 
-        const username = form.data.username;
-        const birthdate = form.data.birthdate;
-
-        const { error } = await event.locals.supabase.auth.updateUser({
-            data: { 
-                username,
-                birthdate
-             }
-        })
-
+        const { supabase } = event.locals;
+        const id = (await supabase.auth.getUser()).data.user?.id;
+        
+        const { error } = await supabase
+            .from('user_profiles')
+            .update(form.data)
+            .eq('id', id);
 
         if (error) {
             console.error(error);

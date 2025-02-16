@@ -88,6 +88,28 @@
 	</Card.Header>
 	<Card.Content>
 		<form method="POST" use:enhance>
+            <!-- first_name -->
+			<Form.Field {form} name="first_name">
+				<Form.Control>
+					{#snippet children({ props })}
+						<Form.Label>First name</Form.Label>
+						<Input {...props} bind:value={$formData.first_name} />
+					{/snippet}
+				</Form.Control>
+				<Form.Description>Enter your first name.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
+            <!-- last_name -->
+			<Form.Field {form} name="last_name">
+				<Form.Control>
+					{#snippet children({ props })}
+						<Form.Label>Last name</Form.Label>
+						<Input {...props} bind:value={$formData.last_name} />
+					{/snippet}
+				</Form.Control>
+				<Form.Description>Enter your last name.</Form.Description>
+				<Form.FieldErrors />
+			</Form.Field>
 			<!-- username -->
 			<Form.Field {form} name="username">
 				<Form.Control>
